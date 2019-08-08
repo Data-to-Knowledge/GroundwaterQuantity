@@ -23,15 +23,15 @@ plt.ioff()
 ### Parameters to modify
 
 recent_date = '2019-01-01'
-min_date = '2004-07-01'
+min_date = '2000-01-01'
 min_count = 10
 search_dis = 50000
 
-input_sites = None # None or a list of sites
+input_sites = ['BV24/0023', 'BV24/0024'] #None # None or a list of sites (e.g. ['BV24/0024', 'BV24/0023'])
 
-export_dir = r'E:\ecan\shared\projects\gw_regressions'
+export_dir = r'C:\Users\HamishG\OneDrive - Environment Canterbury\Documents\_Projects\git\GroundwaterQuantity\regressions'
 fig_sub_dir = 'plots_to_manual'
-export_summ1 = 'manual_to_manual_2019-07-10.csv'
+export_summ1 = 'manual_to_manual_2019-08-09.csv'
 
 ############################################
 ### Other Parameters
@@ -46,6 +46,11 @@ sites_table = 'ExternalSite'
 man_datasets = [13]
 
 qual_codes = [200, 400, 500, 520, 600]
+
+plot_path = os.path.join(export_dir, fig_sub_dir)
+
+if not os.path.exists(plot_path):
+    os.makedirs(plot_path)
 
 ############################################
 ### Extract summary data and determine the appropriate sites to use
@@ -75,7 +80,7 @@ else:
     man_sites2 = man_sites1
 
 results_dict = {}
-for g in man_sites1.ExtSiteID.tolist():
+for g in man_sites2.ExtSiteID.tolist():
     print(g)
 
     man_loc = site_xy1.loc[[g.strip()], :]
