@@ -27,7 +27,7 @@ min_date = '2000-01-01'
 min_count = 10
 search_dis = 50000
 
-input_sites = ['BV24/0023', 'BV24/0024'] #None # None or a list of sites (e.g. ['BV24/0024', 'BV24/0023'])
+input_sites = ['L37/1407', 'L37/1408'] #None # None or a list of sites (e.g. ['BV24/0024', 'BV24/0023'])
 
 export_dir = r'C:\Users\HamishG\OneDrive - Environment Canterbury\Documents\_Projects\git\GroundwaterQuantity\regressions'
 fig_sub_dir = 'plots_to_manual'
