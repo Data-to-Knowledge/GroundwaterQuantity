@@ -30,8 +30,8 @@ datasets = ['allo']
 
 freq = 'M'
 
-from_date = '2010-10-01'
-to_date = '2010-10-31'
+from_date = '2005-08-01'
+to_date = '2019-08-30'
 
 py_path = os.path.realpath(os.path.dirname(__file__))
 
@@ -62,6 +62,7 @@ combo_ts.to_csv(os.path.join(py_path, export2))
 
 allo1 = a1.allo.copy()
 
+allo1.feav.sum()
 
 #########################################
 ### Plotting
