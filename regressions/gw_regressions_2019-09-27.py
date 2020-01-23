@@ -23,21 +23,23 @@ plt.ioff()
 ### Parameters to modify
 
 recent_date = '2019-01-01'
-first_date = '2002-01-01'
+first_date = '2002-06-01'
 data_cutoff_date = '2001-01-01'
 
-min_count = 10
+min_count = 5
 search_dis = 50000
 
-input_sites = ['K37/2247'] #None # None or a list of sites (e.g. ['BV24/0024', 'BV24/0023'])
+input_sites = ['K36/0778'] #None # None or a list of sites (e.g. ['BV24/0024', 'BV24/0023'])
 #input_sites = ['L37/1408'] #None # None or a list of sites (e.g. ['BV24/0024', 'BV24/0023'])
 
-export_dir = r'C:\Users\HamishG\OneDrive - Environment Canterbury\Documents\_Projects\git\GroundwaterQuantity\regressions'
-export_dir2 = r'C:\Users\HamishG\OneDrive - Environment Canterbury\Documents\_Projects\git\GroundwaterQuantity\regressions'
+exclude_sites = ['K37/0293']
+
+export_dir = r'C:\Users\hamishg\OneDrive - Environment Canterbury\Documents\_Projects\git\GroundwaterQuantity\regressions'
+export_dir2 = r'C:\Users\hamishg\OneDrive - Environment Canterbury\Documents\_Projects\git\GroundwaterQuantity\regressions'
 fig_sub_dir = 'plots_to_manual'
-export_summ1 = 'manual_to_manual_K37_2247.csv'
+export_summ1 = 'manual_to_manual_K36_0778.csv'
 #export_summ1 = 'manual_to_manual_L37-1408_2019-08-09.csv'
-export_summ2 = 'manual_to_manual_K37_2247_raw.csv'
+export_summ2 = 'manual_to_manual_K36_0778_raw.csv'
 ############################################
 ### Other Parameters
 
@@ -65,6 +67,7 @@ man_summ_data.FromDate = pd.to_datetime(man_summ_data.FromDate)
 man_summ_data.ToDate = pd.to_datetime(man_summ_data.ToDate)
 
 man_sites1 = man_summ_data[(man_summ_data.ToDate >= recent_date) & (man_summ_data.Count >= min_count) & (man_summ_data.FromDate <= first_date) | (man_summ_data.ExtSiteID.isin(input_sites))].copy()
+man_sites1 = man_sites1[~man_sites1.ExtSiteID.isin(exclude_sites)].copy()
 man_sites1.ExtSiteID = man_sites1.ExtSiteID.str.strip()
 
 
